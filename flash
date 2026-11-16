@@ -1,0 +1,8 @@
+#!/bin/sh
+# Wrapper: runs the updater with pyusb available. Linux needs root for raw USB.
+here="$(cd "$(dirname "$0")" && pwd)"
+uv="$(command -v uv || echo "$HOME/.local/bin/uv")"
+if [ "$(uname)" = Linux ] && [ "$(id -u)" != 0 ]; then
+  exec sudo "$uv" run -q --with pyusb "$here/ch7218_flash.py" "$@"
+fi
+exec "$uv" run -q --with pyusb "$here/ch7218_flash.py" "$@"

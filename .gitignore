@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+# Vendor firmware and tools are not redistributed here
+vendor-kit/
+*.IMG
+*.img
+# Dumps of a dock's flash
+backups/
+*.bin
+*.unverified
